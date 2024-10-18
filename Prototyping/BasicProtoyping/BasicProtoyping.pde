@@ -18,8 +18,14 @@ int appWith,appHeight;
 float musiButtonDIV_X,musicButtonDIV_width,musicButtonDIV_height;
 float musicButtonsquarex,musicButtonsquareY,musicButtonsquarewidth,musiButtonsquareHeight;
 float stopX,stopY,stopdwidth,stopHeight;
+float quithickchline,quitButton
+
 //
-color 
+color red=CB1B29
+color Black=050404
+color green=172110
+color white=F5F5F5
+color
 void setup()
 {
   
@@ -31,7 +37,9 @@ void setup()
   musicButtonDIV_width=appwidh*1/2;
   musicButtonDIv_height=appHeight*1/2;
   musicButtonDIv_x=musiButonDiv_xwidth-musicButtonDIV_heigh*1/2;
-  musicButtonDIV_Y=MusiButonDIV_Heigh-musicButtonDIV_
+  musicButtonDIV_Y=MusiButonDIV_Heigh-musicButtonDIV_Y
+  
+  
   
   String  = "Music/";
   String mp3FileName = ".mp3";
