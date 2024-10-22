@@ -13,78 +13,79 @@ int numberOfSongs = 8; //Able to Autodetect based on Pathway
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
 int currentSong = numberOfSongs - numberOfSongs;  //beginning current song as ZERO
 //
-int appWith,appHeight;
-
-float musiButtonDIV_X,musicButtonDIV_width,musicButtonDIV_height;
-float musicButtonsquarex,musicButtonsquareY,musicButtonsquarewidth,musiButtonsquareHeight;
-float stopX,stopY,stopdwidth,stopHeight;
-float quithickchline,quitButton
-
+int appWidth, appHeight;
+float musicButtonDIV_X, musicButtonDIV_Y, musicButtonDIV_Width, musicButtonDIV_Height;
+float musicButtonSquareX=0.0, musicButtonSquareY=0.0, musicButtonSquareWidth=0.0, musicButtonSquareHeight=0.0; //Populated in IF
 //
-color red=CB1B29
-color Black=050404
-color green=172110
-color white=F5F5F5
-color
 void setup()
 {
   
-  size(100, 800);
-  //
-  appwidth =width;
-  apppHeight=height;
-  //variables for any music button
-  musicButtonDIV_width=appwidh*1/2;
-  musicButtonDIv_height=appHeight*1/2;
-  musicButtonDIv_x=musiButonDiv_xwidth-musicButtonDIV_heigh*1/2;
-  musicButtonDIV_Y=MusiButonDIV_Heigh-musicButtonDIV_Y
+  size(1000, 800);
+  appWidth = width;
+  appHeight = height;
+  //Variables for any music button
+  musicButtonDIV_Width = appWidth*1/2;
+  musicButtonDIV_Height = appHeight*1/2;
+  musicButtonDIV_X = musicButtonDIV_Width - musicButtonDIV_Width*1/2;
+  musicButtonDIV_Y = musicButtonDIV_Height- musicButtonDIV_Height*1/2;
+  //use if statement to change, introduce ternary operator
   
-  
-  
-  String  = "Music/";
+  //Population (Variables)
+  //Work out a case Study: 
+  if ( musicButtonDIV_Width >= musicButtonDIV_Height ) { // Landscape //error: square does not go in the middle
+   // musicButtonWidth needs to change
+   musicButtonSquareWidth = musicButtonDIV_Height ;
+   musicButtonSquareHeight = musicButtonDIV_Height ;
+   float padding1 = musicButtonDIV_Width - musicButtonDIV_Height; //working out value needed, with formulae
+   float padding2 = padding1*1/2; ////working out value needed, with formulae
+   musicButtonSquareX = musicButtonDIV_X + padding2 ; //note: minus moves it the wrong way, difficult to see
+   musicButtonSquareY = musicButtonDIV_Y;
+   println( musicButtonDIV_X, musicButtonDIV_Y, musicButtonDIV_Width, musicButtonDIV_Height );
+   println ( musicButtonSquareX, musicButtonSquareY, musicButtonSquareWidth, musicButtonSquareHeight );
+   
+   //float padding = 1.0/4.0;
+  //float stopButtonSize = 1.0-(1.0/4.0);
+  //*
+  stopWidth = musicButtonDIV_Width*stopButtonSize; //stopButtonSize
+   stopHeight = musicButtonDIV_Height*stopButtonSize; //stopButtonSize
+   stopX = musicButtonDIV_X+padding;
+   stopY = musicButtonDIV_Y+padding;
+   //
+   minim = new Minim(this); //load from data directory, loadFile should also load from project folder
+   //
+   
+  // Load Music
+  String musicPathway = "Music/";
   String mp3FileName = ".mp3";
   //Alphebetical order, same as OS ordering files
   String beatYourCompetition = "Beat_Your_Competition";
   String cycles = "Cycles";
   String eureka = "Eureka";
   String ghostWalk = "Ghost_Walk";
-  String groove = "groove";
+  string groove = "groove";
   String newsroom = "Newsroom";
   String startYourEngines = "Start_Your_Engines";
-  String theSimplest = "The_Simplest";
+  String theSimplest = "The_Simples";
+  
   //
   //Add Reading into Array
-  String directory = "../../" + musicPathway;
-  String file = directory + groove + mp3FileName 
-  song[currentsong+=1]
+  String directory = "../../../" + musicPathway;
+  String file = directory + groove + mp3FileName;
+  song[currentSong] = minim.loadFile( file );
   file = directory + startYourEngines + mp3FileName;
-  println (file);
   song[currentSong+=1] = minim.loadFile( file );
-  println( currentSong, song[currentSong] );
   file = directory + beatYourCompetition + mp3FileName;
-  println (file);
   song[currentSong+=1] = minim.loadFile( file );
-  println( currentSong, song[currentSong] );
   file = directory + cycles + mp3FileName;
-  println (file);
   song[currentSong+=1] = minim.loadFile( file );
-  println( currentSong, song[currentSong] );
   file = directory + eureka + mp3FileName;
-  println (file);
-  song[G=1] = minim.loadFile( file );
-  println( currentSong, song[currentSong] );
+  song[currentSong+=1] = minim.loadFile( file );
   file = directory + ghostWalk + mp3FileName;
-  println (file);
   song[currentSong+=1] = minim.loadFile( file );
-  println( currentSong, song[currentSong] );
   file = directory + newsroom + mp3FileName;
-  println (file);
   song[currentSong+=1] = minim.loadFile( file );
-  println( currentSong, song[currentSong] );
   file = directory + theSimplest + mp3FileName;
-  println (file);
   song[currentSong+=1] = minim.loadFile( file );
-  println( currentSong, song[currentSong] );
   //
   currentSong = 0;
   //
@@ -95,24 +96,52 @@ void setup()
   //Introduce mousePressed as interaction
   //
   //DIVs
-  //rect() on variables;
-  variables change with program (introduces parameters of a f
-  
-//musicButtns interact
-  
-} //End setup
-//
-void draw() {
-background(200);//Gray sale:0-255
-//
-rect(musicButtonsquareX,
-void mousePressed() {}
-//Boolen for click
-//
+  //rect() based on variables; variables change with program (introduces parameters of a function and TABS)
+  //rect( X, Y, Width, Height );
+  rect( musicButtonDIV_X, musicButtonDIV_Y, musicButtonDIV_Width, musicButtonDIV_Height );
+}
 
- //End mousePressed
+}//End setup
+  
 //
+ void draw() {
+  //background(200); // Gray Scale: 0-255
+ // rect( musicButtonSquareX, musicButtonSquareY, musicButtonSquareWidth, musicButtonSquareHeight );
+  //fill();
+  //rect( stopX, stopY, stopWidth, stopHeight );
+} //End draw
+//
+void mousePressed() {
+} //End mousePressed
+//
+}
 
-void keyPressed() { //End keyPressed
-//
+
+}
+
 // End Main Program
+id keyPressed() {
+  /* Key Board Short Cuts ... learning what the Music Buttons could be
+   Note: CAP Lock with ||
+   if ( key==? || key==? ) ;
+   */
+  //if ( key=='P' || key=='p' ) song[currentSong].play(); //Simple Play, no double tap possible
+  //
+  if ( key=='P' || key=='p' ) song[currentSong].loop(0); //Simple Play, double tap possible
+  /* Note: double tap is automatic rewind, no pause
+   Symbol is two triangles
+   This changes what the button might become after it is pressed
+   */
+  //if ( key=='S' || key=='s' ) song[currentSong].pause(); //Simple Stop, no double taps
+  //
+  if ( key=='S' | key=='s' ) {
+    if ( song[currentSong].isPlaying() ) {
+      song[currentSong].pause(); //single tap
+    } else {
+      song[currentSong].rewind(); //double tap
+    }
+  }
+
+} //End keyPressed
+//
+// End Main
