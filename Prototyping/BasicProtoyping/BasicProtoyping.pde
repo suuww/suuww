@@ -19,7 +19,17 @@ float musicButtonSquareX=0.0, musicButtonSquareY=0.0, musicButtonSquareWidth=0.0
 //
 void setup()
 {
-  
+color purple=#DB05FF, yellow=#E9FF00, blue=#037EFF, white=#FFFFFF, black=#000000, green=#00FF00;
+color dayForeground=purple, dayHoverover=blue, dayBackground=white;
+color darkForeground=purple, darkHoverover=yellow, darkBackground=black;
+color nightForeground=green, nightHoverover=yellow, nightBackground=black;
+color appColorForeground, appColorHoverover, appColorBackground;
+color stopButtonHoverOver;
+//
+Boolean colorDarkMode=true; //Preference: true or false //Future: Build Button for Dark Mode Preference
+ 
+ void setup()
+{
   size(1000, 800);
   appWidth = width;
   appHeight = height;
@@ -29,7 +39,7 @@ void setup()
   musicButtonDIV_X = musicButtonDIV_Width - musicButtonDIV_Width*1/2;
   musicButtonDIV_Y = musicButtonDIV_Height- musicButtonDIV_Height*1/2;
   //use if statement to change, introduce ternary operator
-  
+  //
   //Population (Variables)
   //Work out a case Study: 
   if ( musicButtonDIV_Width >= musicButtonDIV_Height ) { // Landscape //error: square does not go in the middle
@@ -110,17 +120,8 @@ void setup()
   //fill();
   //rect( stopX, stopY, stopWidth, stopHeight );
 } //End draw
-//
-void mousePressed() {
-} //End mousePressed
-//
-}
+// 
 
-
-}
-
-// End Main Program
-id keyPressed() {
   /* Key Board Short Cuts ... learning what the Music Buttons could be
    Note: CAP Lock with ||
    if ( key==? || key==? ) ;
@@ -133,7 +134,8 @@ id keyPressed() {
    This changes what the button might become after it is pressed
    */
   //if ( key=='S' || key=='s' ) song[currentSong].pause(); //Simple Stop, no double taps
-  //
+  
+}
   if ( key=='S' | key=='s' ) {
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].pause(); //single tap
@@ -141,7 +143,9 @@ id keyPressed() {
       song[currentSong].rewind(); //double tap
     }
   }
+if (key ==CODED || key code
 
-} //End keyPressed
-//
-// End Main
+
+
+
+// End Main Program
